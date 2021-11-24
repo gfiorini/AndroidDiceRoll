@@ -8,6 +8,9 @@ import android.widget.TextView
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var diceImage: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,10 +19,11 @@ class MainActivity : AppCompatActivity() {
         rollbutton.setOnClickListener {
             doRoll()
         }
+        diceImage = findViewById(R.id.dice_view)
     }
 
     private fun doRoll() {
-        val diceImage: ImageView = findViewById(R.id.dice_view)
+
         val diceValue = Random().nextInt(6) + 1
         val drawableResource = when (diceValue) {
             1 -> R.drawable.dice_1
