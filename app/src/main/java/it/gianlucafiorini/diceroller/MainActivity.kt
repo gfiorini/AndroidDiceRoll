@@ -2,9 +2,9 @@ package it.gianlucafiorini.diceroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,10 +13,13 @@ class MainActivity : AppCompatActivity() {
         val rollbutton : Button = findViewById(R.id.roll_button);
         rollbutton.text = "Let's go!!"
         rollbutton.setOnClickListener {
-            val t : Toast = Toast.makeText(this, "Urrà!", Toast.LENGTH_SHORT)
-            t.show()
+            doRoll()
         }
-        
+    }
 
+    private fun doRoll() {
+        val view : TextView = findViewById(R.id.roll_text)
+        val diceValue = Random().nextInt(6) + 1
+        view.text = diceValue.toString()
     }
 }
